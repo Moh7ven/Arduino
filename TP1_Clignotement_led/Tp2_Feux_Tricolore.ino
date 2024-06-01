@@ -6,8 +6,7 @@ const int ledRed2 = 5;
 const int ledYellow2 = 6;
 const int ledGreen2 = 7;
 
-void setup()
-{
+void setup(){
   pinMode(ledRed1, OUTPUT);
   pinMode(ledYellow1, OUTPUT);
   pinMode(ledGreen1, OUTPUT);
@@ -17,39 +16,38 @@ void setup()
   pinMode(ledGreen2, OUTPUT);
 }
 
-void loop()
-{
+void loop(){
   
-  // FEUX_TRICOLORE 1
+  // Phase 1: Direction 1 - Vert, Direction 2 - Rouge
   digitalWrite(ledRed1, LOW);
   digitalWrite(ledGreen1, HIGH);
   digitalWrite(ledRed2, HIGH);
-  delay(3000);
+  delay(3000); // Vert pour Direction 1
 
-  // Transition 1:
+  // Transition 1: Direction 1 - Jaune
   digitalWrite(ledGreen1, LOW);
   digitalWrite(ledYellow1, HIGH);
-  delay(2000);
+  delay(2000); // Jaune pour Direction 1
   digitalWrite(ledYellow1, LOW);
 
-  //Sécurité
+  // Phase de sécurité : Assurer le rouge des deux directions pendant une courte période
   digitalWrite(ledRed1, HIGH);
-  delay(1000);
+  delay(1000); // Tous les deux rouges pour une courte période
 
-  // FEUX_TRICOLORE 2
+  // Phase 2: Direction 1 - Rouge, Direction 2 - Vert
   digitalWrite(ledRed1, HIGH);
   digitalWrite(ledRed2, LOW);
   digitalWrite(ledGreen2, HIGH);
-  delay(3000); 
+  delay(3000); // Vert pour Direction 2
 
-  // Transition 2
+  // Transition 2: Direction 2 - Jaune
   digitalWrite(ledGreen2, LOW);
   digitalWrite(ledYellow2, HIGH);
-  delay(2000);
+  delay(2000); // Jaune pour Direction 2
   digitalWrite(ledYellow2, LOW);
 
-  // Sécurité :
+  // Phase de sécurité : Assurer le rouge des deux directions pendant une courte période
   digitalWrite(ledRed2, HIGH);
-  delay(1000);
+  delay(1000); // Tous les deux rouges pour une courte période
   
 }
