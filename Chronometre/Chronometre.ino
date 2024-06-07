@@ -1,6 +1,6 @@
 #include <TM1637Display.h>
 #include <TimerOne.h>
-
+// Module connection pins
 #define CLK A5
 #define DIO A4
 
